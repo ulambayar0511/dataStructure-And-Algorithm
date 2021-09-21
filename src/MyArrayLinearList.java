@@ -104,10 +104,16 @@ public class MyArrayLinearList extends ArrayLinearList {
                     System.out.println("Average :" + average);
                     break;
                 default:
-                    System.out.println(List.toString());
+                    System.out.println("invalid input, input options 1 to 5 !!!");
                     break;
             }
+            System.out.print("do yo want to exit? yes or no:");
+            String exit = new String();
+            exit = scan.next();
+            if (exit.equals("yes"))
+                break;
 
         }
+        scan.close();
     }
 }
