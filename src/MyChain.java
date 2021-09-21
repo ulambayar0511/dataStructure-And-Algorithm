@@ -81,31 +81,37 @@ public class MyChain extends Chain {
         while (true) {
             System.out.print("1.toArray\n2.addRange\n3.union4.\ninput option:");
             int option;
-            option = scan.nextInt();
-            switch (option) {
-                case 1:
-                    Object arr[] = myChain.toArray();
-                    for (int i = 0; i < arr.length; i++) {
-                        System.out.println(arr[i]);
-                    }
-                    break;
-                case 2:
-                    Object[] addElements = { 1, 2, 3 };
-                    myChain.addRange(addElements);
-                    printLinkedList();
-                    break;
-                case 3:
-                    myChain = myChain.union(myChain);
-                    printLinkedList(myChain);
-                    break;
-                case 4:
-                    myChain = myChain.intersection(myChain);
-                    printLinkedList(myChain);
-                    break;
-                default:
-                    System.out.println("invalid input, input options 1 to 4 !!!");
+            try {
+
+                option = scan.nextInt();
+
+                switch (option) {
+                    case 1:
+                        Object arr[] = myChain.toArray();
+                        for (int i = 0; i < arr.length; i++) {
+                            System.out.println(arr[i]);
+                        }
+                        break;
+                    case 2:
+                        Object[] addElements = { 1, 2, 3 };
+                        myChain.addRange(addElements);
+                        printLinkedList();
+                        break;
+                    case 3:
+                        myChain = myChain.union(myChain);
+                        printLinkedList(myChain);
+                        break;
+                    case 4:
+                        myChain = myChain.intersection(myChain);
+                        printLinkedList(myChain);
+                        break;
+                    default:
+                        System.out.println("invalid input, input options 1 to 4 !!!");
+                }
+            } catch (Exception exception) {
+                System.out.println("invalid input, input options 1 to 4 !!!");
             }
-            System.out.print("do yo want to exit? yes or no:");
+            System.out.println("do yo want to exit? yes or no:");
             String exit = new String();
             exit = scan.next();
             if (exit.equals("yes"))

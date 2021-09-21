@@ -74,38 +74,43 @@ public class MyArrayLinearList extends ArrayLinearList {
         while (true) {
             System.out.print(
                     "1.Sorting\n2.Max element\n3.Min element4.Remoce odd elements\n5.Average of total elements\ninput option:");
-            int option;
-            option = scan.nextInt();
+            try {
 
-            switch (option) {
-                case 1:
-                    System.out.println("Sorting before:");
-                    System.out.println(List.toString());
+                int option;
+                option = scan.nextInt();
 
-                    sortArr(List, size);
-                    System.out.println("Sorting after:");
-                    System.out.println(List.toString());
-                    break;
-                case 2:
-                    int max = maxElement(List);
-                    System.out.println("Max :" + max);
-                    break;
-                case 3:
-                    int min = minElement(List);
-                    System.out.println("Max :" + min);
-                    break;
-                case 4:
-                    System.out.println(List.toString());
-                    removeOdd(List);
-                    System.out.println(List.toString());
-                case 5:
-                    int sum = sumArr(List);
-                    double average = sum / size;
-                    System.out.println("Average :" + average);
-                    break;
-                default:
-                    System.out.println("invalid input, input options 1 to 5 !!!");
-                    break;
+                switch (option) {
+                    case 1:
+                        System.out.println("Sorting before:");
+                        System.out.println(List.toString());
+
+                        sortArr(List, size);
+                        System.out.println("Sorting after:");
+                        System.out.println(List.toString());
+                        break;
+                    case 2:
+                        int max = maxElement(List);
+                        System.out.println("Max :" + max);
+                        break;
+                    case 3:
+                        int min = minElement(List);
+                        System.out.println("Max :" + min);
+                        break;
+                    case 4:
+                        System.out.println(List.toString());
+                        removeOdd(List);
+                        System.out.println(List.toString());
+                    case 5:
+                        int sum = sumArr(List);
+                        double average = sum / size;
+                        System.out.println("Average :" + average);
+                        break;
+                    default:
+                        System.out.println("invalid input, input options 1 to 5 !!!");
+                        break;
+                }
+            } catch (Exception exception) {
+                System.out.println("invalid input, input options 1 to 5 !!!");
             }
             System.out.print("do yo want to exit? yes or no:");
             String exit = new String();
