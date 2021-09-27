@@ -62,6 +62,7 @@ public class MyArrayLinearList extends ArrayLinearList {
     }
 
     public static void main(String[] args) {
+        System.out.println("hello world");
         Scanner scan = new Scanner(System.in);
         System.out.print("list size:");
         int size = scan.nextInt();

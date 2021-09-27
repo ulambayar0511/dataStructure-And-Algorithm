@@ -1,5 +1,4 @@
 import java.util.Scanner;
-
 import dataStructures.Chain;
 
 public class MyChain extends Chain {
@@ -45,6 +44,7 @@ public class MyChain extends Chain {
 
     // Өгөгдсөн жагсаалт болон үндсэн жагсаалт ын нэгдэл жагсаалтыг буцаана.
     public MyChain union(MyChain myChain) {
+
         MyChain tmpChain = new MyChain();
         for (int i = 0; i < chain.size(); i++) {
             tmpChain.add(i, chain.get(i));
@@ -77,7 +77,6 @@ public class MyChain extends Chain {
         MyChain myChain = new MyChain();
         myChain.add(0, 1);
         myChain.add(1, 5);
-
         while (true) {
             System.out.print("1.toArray\n2.addRange\n3.union4.\ninput option:");
             int option;
@@ -111,7 +110,7 @@ public class MyChain extends Chain {
             } catch (Exception exception) {
                 System.out.println("invalid input, input options 1 to 4 !!!");
             }
-            System.out.println("do yo want to exit? yes or no:");
+            System.out.println("do you want to exit? yes or no:");
             String exit = new String();
             exit = scan.next();
             if (exit.equals("yes"))
