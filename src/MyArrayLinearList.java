@@ -17,7 +17,7 @@ public class MyArrayLinearList extends ArrayLinearList {
     static int minElement(ArrayLinearList arr) {
         int min = 0;
         for (int i = 0; i < arr.size(); i++) {
-            if ((int) arr.get(i) > min)
+            if ((int) arr.get(i) < min)
                 min = (int) arr.get(i);
 
         }
@@ -73,7 +73,7 @@ public class MyArrayLinearList extends ArrayLinearList {
         }
         while (true) {
             System.out.print(
-                    "1.Sorting\n2.Max element\n3.Min element4.Remoce odd elements\n5.Average of total elements\ninput option:");
+                    "1.Sorting\n2.Max element\n3.Min element\n4.Remoce odd elements\n5.Average of total elements\ninput option:");
             try {
 
                 int option;
@@ -94,15 +94,16 @@ public class MyArrayLinearList extends ArrayLinearList {
                         break;
                     case 3:
                         int min = minElement(List);
-                        System.out.println("Max :" + min);
+                        System.out.println("Min :" + min);
                         break;
                     case 4:
                         System.out.println(List.toString());
                         removeOdd(List);
                         System.out.println(List.toString());
+                        break;
                     case 5:
                         int sum = sumArr(List);
-                        double average = sum / size;
+                        double average = sum / List.size();
                         System.out.println("Average :" + average);
                         break;
                     default:

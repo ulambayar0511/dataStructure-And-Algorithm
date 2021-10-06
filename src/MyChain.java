@@ -78,7 +78,7 @@ public class MyChain extends Chain {
         myChain.add(0, 1);
         myChain.add(1, 5);
         while (true) {
-            System.out.print("1.toArray\n2.addRange\n3.union4.\ninput option:");
+            System.out.print("1.toArray\n2.addRange\n3.union\n4.intersection\ninput option:");
             int option;
             try {
 
@@ -110,7 +110,7 @@ public class MyChain extends Chain {
             } catch (Exception exception) {
                 System.out.println("invalid input, input options 1 to 4 !!!");
             }
-            System.out.println("do you want to exit? yes or no:");
+            System.out.print("do you want to exit? yes or no:");
             String exit = new String();
             exit = scan.next();
             if (exit.equals("yes"))
