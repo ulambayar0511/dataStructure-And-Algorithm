@@ -21,7 +21,9 @@ public class Main {
                 registration.setSubject(values, index);
                 index++;
             }
+            System.out.println("Нийт хичээлүүдийн жагсаалт");
             for (int i = 0; i < index; i++) {
+
                 System.out.println(registration.getSubject(i).getCode());
             }
             input.close();
@@ -30,7 +32,7 @@ public class Main {
             System.out.println("File not found: " + "subject");
             System.exit(1);
         }
-
+        // Нийт мэргэжлүүдийн жагсаалтыг харуулах
         try {
             BufferedReader input = new BufferedReader(new FileReader("src/biedaalt/Professions.txt"));
             String line;
@@ -41,9 +43,33 @@ public class Main {
                 registration.setMajor(values, index);
                 index++;
             }
+            System.out.println("Нийт мэргэжлүүдийн жагсаалт");
             for (int i = 0; i < index; i++) {
                 System.out.println(registration.getMajor(i).getName());
             }
+            input.close();
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            System.out.println("File not found: " + "Professions");
+            System.exit(1);
+        }
+        // Нийт оюутны дундаж голч дүнг харуулах
+        try {
+            BufferedReader input = new BufferedReader(new FileReader("src/biedaalt/Exams.txt"));
+            String line;
+            int index = 0;
+            while ((line = input.readLine()) != null) {
+
+                String values[] = line.split("/");
+                registration.setStudent(values, index);
+                index++;
+            }
+            float sum = 0;
+            for (int i = 0; i < index; i++) {
+                sum += registration.getStudent(i).getGPA();
+                // System.out.println((registration.getStudent(i).getGPA()));
+            }
+            System.out.println("Нийт оюутны дундаж голч дүн: " + sum / index);
             input.close();
         } catch (FileNotFoundException e) {
             // TODO Auto-generated catch block

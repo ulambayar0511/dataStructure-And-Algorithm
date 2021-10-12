@@ -1,6 +1,7 @@
 package biedaalt;
 
 import dataStructures.ArrayLinearList;
+import dataStructures.Chain;
 
 public class Registration {
     public ArrayLinearList studentList = new ArrayLinearList();
@@ -31,6 +32,28 @@ public class Registration {
 
     public Major getMajor(int index) {
         return (Major) majorList.get(index);
+    }
+
+    public void setStudent(String[] elements, int index) {
+        Student student = new Student();
+        student.setCode(elements[0]);
+        // Lessons tmpLessons = new Lessons();
+        // Subject subject = new Subject();
+        // subject.setCode(elements[1]);
+        // tmpLessons.setLearned(subject);
+        // student.setLessons(tmpLessons);
+
+        student.setGPA((Float.parseFloat(elements[2])));
+        // Chain tmp = new Chain();
+        // tmp.add(0, elements[1]);
+        // tmp.add(1, elements[2]);
+        // student.setLessons(tmp);
+        studentList.add(index, student);
+
+    }
+
+    public Student getStudent(int index) {
+        return (Student) studentList.get(index);
     }
 
 }
