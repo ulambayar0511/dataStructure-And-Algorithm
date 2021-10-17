@@ -5,6 +5,8 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
+import javax.sound.midi.SysexMessage;
+
 import dataStructures.ArrayLinearList;
 
 public class Main {
@@ -70,6 +72,28 @@ public class Main {
                 // System.out.println((registration.getStudent(i).getGPA()));
             }
             System.out.println("Нийт оюутны дундаж голч дүн: " + sum / index);
+            // Гураваас дээш хичээлд “F” үнэлгээ авссан хасагдах оюутны жагсаалт хэвлэх
+            System.out.println("Гураваас дээш хичээлд “F” үнэлгээ авссан хасагдах оюутны жагсаалт");
+            for (int i = 0; i < index; i++) {
+                if (registration.getStudent(i).getGPA() < 0.7) {
+                    System.out.println(registration.getStudent(i).getCode());
+                }
+            }
+
+            // Хичээл бүрээр оюутнуудын дүнгийн жагсаалтыг харуулах
+            System.out.println("Хичээл бүрээр оюутнуудын дүнгийн жагсаалтыг харуулах");
+
+            for (int i = 0; i < index; i++) {
+                System.out.print(registration.getStudent(i).getCode() + " : ");
+                for (int j = 0; j < registration.getStudent(i).getLessons().size(); j++) {
+                    // Object subjectName =
+                    // registration.getStudent(i).getLessons().get(j).getScore();
+                    System.out.println(registration.getStudent(i).getLessons().get(j));
+                }
+            }
+            System.out.println("Мэргэжил бүрээр оюутнуудын дүнгийн жагсаалтыг харуулах");
+            // for (int i = 0; i < )
+
             input.close();
         } catch (FileNotFoundException e) {
             // TODO Auto-generated catch block

@@ -3,6 +3,7 @@ package biedaalt;
 import dataStructures.Chain;
 
 public class Student {
+
     public String getCode() {
         return code;
     }
@@ -12,52 +13,57 @@ public class Student {
     }
 
     public float getGPA() {
+        float sum = 0;
+        for (int i = 0; i < lessons.size(); i++) {
+            sum += pointToFloat(((Lessons) lessons.get(i)).getScore());
+        }
+        GPA = sum / lessons.size();
         return GPA;
     }
 
-    public void setGPA(float point) {
-
+    public float pointToFloat(float point) {
+        float gpa = 0;
         if (point >= 96 && point <= 100)
-            GPA = (float) 4.0;
+            gpa = (float) 4.0;
         else if (point >= 91 && point < 96)
-            GPA = (float) 3.7;
+            gpa = (float) 3.7;
         else if (point >= 88 && point < 91)
-            GPA = (float) 3.4;
+            gpa = (float) 3.4;
         else if (point >= 84 && point < 88)
-            GPA = (float) 3.0;
+            gpa = (float) 3.0;
         else if (point >= 81 && point < 84)
-            GPA = (float) 2.7;
+            gpa = (float) 2.7;
         else if (point >= 78 && point < 81)
-            GPA = (float) 2.4;
+            gpa = (float) 2.4;
         else if (point >= 74 && point < 78)
-            GPA = (float) 2.0;
+            gpa = (float) 2.0;
         else if (point >= 71 && point < 74)
-            GPA = (float) 1.7;
+            gpa = (float) 1.7;
         else if (point >= 68 && point < 71)
-            GPA = (float) 1.3;
+            gpa = (float) 1.3;
         else if (point >= 64 && point < 68)
-            GPA = (float) 1.0;
+            gpa = (float) 1.0;
         else if (point >= 60 && point < 64)
-            GPA = (float) 0.7;
+            gpa = (float) 0.7;
         else if (point >= 0 && point < 60)
-            GPA = (float) 0.0;
+            gpa = (float) 0.0;
+        return gpa;
     }
 
     public Chain getLessons() {
         return lessons;
     }
 
-    public void setLessons(Lessons lessons) {
-        lessons.setLearned(lessons.getLearned());
+    public void setLessons(Lessons lesson) {
+
+        lessons.add(lessons.size(), lesson);
         // Lessons lessons = new Lessons();
-        //
-        // lessons.learned = (Subject) lessChain.get(0);
-        // lessons.score = (int) lessChain.get(1);
 
     }
 
     // Оюутан
-    public String code;// код
+    public String code;// код Оюутны код
     public float GPA;// голч дүн
-    public Chain lessons;// үзсэн хичээлүүд
+    public Chain lessons = new Chain();// үзсэн хичээл
+
 }
