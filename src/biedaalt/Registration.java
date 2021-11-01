@@ -37,17 +37,14 @@ public class Registration {
     public void setStudent(String[] elements, int index) {
         Student student = new Student();
         student.setCode(elements[0]);
-        Lessons tmpLessons = new Lessons();
+        student.setMajor(elements[3]);
+
         Subject subject = new Subject();
         subject.setCode(elements[1]);
+        Lessons tmpLessons = new Lessons();
         tmpLessons.setLearned(subject);
         tmpLessons.setScore((Integer.parseInt(elements[2])));
         student.setLessons(tmpLessons);
-
-        // Chain tmp = new Chain();
-        // tmp.add(0, elements[1]);
-        // tmp.add(1, elements[2]);
-        // student.setLessons(tmp);
         studentList.add(index, student);
 
     }

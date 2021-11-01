@@ -51,7 +51,7 @@ public class Student {
     }
 
     public Chain getLessons() {
-        return lessons;
+        return this.lessons;
     }
 
     public void setLessons(Lessons lesson) {
@@ -61,9 +61,18 @@ public class Student {
 
     }
 
+    public void setMajor(String major) {
+        this.major.setName(major);
+    }
+
+    public String getMajor() {
+        return this.major.getName();
+    }
+
     // Оюутан
     public String code;// код Оюутны код
     public float GPA;// голч дүн
     public Chain lessons = new Chain();// үзсэн хичээл
+    public Major major = new Major();
 
 }

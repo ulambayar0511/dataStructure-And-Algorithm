@@ -4,10 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-
-import javax.sound.midi.SysexMessage;
-
-import dataStructures.ArrayLinearList;
+import dataStructures.Chain;
 
 public class Main {
     // Нийт хичээлүүдийн жагсаалтыг харуулах
@@ -85,14 +82,22 @@ public class Main {
 
             for (int i = 0; i < index; i++) {
                 System.out.print(registration.getStudent(i).getCode() + " : ");
+                Chain tmpchain = registration.getStudent(i).getLessons();
                 for (int j = 0; j < registration.getStudent(i).getLessons().size(); j++) {
-                    // Object subjectName =
-                    // registration.getStudent(i).getLessons().get(j).getScore();
-                    System.out.println(registration.getStudent(i).getLessons().get(j));
+                    Lessons tmpLessons = (Lessons) tmpchain.get(j);
+                    System.out.println(tmpLessons.getLearned().getCode() + " " + tmpLessons.getScore());
                 }
             }
             System.out.println("Мэргэжил бүрээр оюутнуудын дүнгийн жагсаалтыг харуулах");
-            // for (int i = 0; i < )
+
+            for (int i = 0; i < index; i++) {
+                System.out.print(registration.getStudent(i).getMajor() + " : ");
+                Chain tmpchain = registration.getStudent(i).getLessons();
+                for (int j = 0; j < registration.getStudent(i).getLessons().size(); j++) {
+                    Lessons tmpLessons = (Lessons) tmpchain.get(j);
+                    System.out.println(tmpLessons.getLearned().getCode() + " " + tmpLessons.getScore());
+                }
+            }
 
             input.close();
         } catch (FileNotFoundException e) {
