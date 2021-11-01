@@ -4,7 +4,9 @@ import java.util.Random;
 
 import dataStructures.ArrayLinearList;
 
-public class MyStackDiff extends LinkedStack {
+public class MyStackDiff extends Linke••••••••dStack
+{
+
     MyStackDiff(int iniSize) {
         super(iniSize);
     }
@@ -125,18 +127,18 @@ public class MyStackDiff extends LinkedStack {
 
     public static void main(String[] args) {
         inputStack();
-        // PrintStack(myStack);
-        // rand();
-        // PrintStack(myStack);
-        // unique();
-        // PrintStack(myStack);
-        // Object[] elemeObjects = { "a", "b" };
-        // addRange(elemeObjects);
-        // PrintStack(myStack);
-        // Object[] elements = toArray(myStack);
-        // for (int i = 0; i < elements.length; i++) {
-        // System.out.println(elements[i]);
-        // }
+        PrintStack(myStack);
+        rand();
+        PrintStack(myStack);
+        unique();
+        PrintStack(myStack);
+        Object[] elemeObjects = { "a", "b" };
+        addRange(elemeObjects);
+        PrintStack(myStack);
+        Object[] elements = toArray(myStack);
+        for (int i = 0; i < elements.length; i++) {
+            System.out.println(elements[i]);
+        }
         System.out.println(exists("a"));
     }
 

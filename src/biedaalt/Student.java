@@ -64,6 +64,7 @@ public class Student {
     // Оюутан
     public String code;// код Оюутны код
     public float GPA;// голч дүн
+    public String lesson;
     public Chain lessons = new Chain();// үзсэн хичээл
 
 }

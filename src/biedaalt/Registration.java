@@ -43,11 +43,6 @@ public class Registration {
         tmpLessons.setLearned(subject);
         tmpLessons.setScore((Integer.parseInt(elements[2])));
         student.setLessons(tmpLessons);
-
-        // Chain tmp = new Chain();
-        // tmp.add(0, elements[1]);
-        // tmp.add(1, elements[2]);
-        // student.setLessons(tmp);
         studentList.add(index, student);
 
     }
