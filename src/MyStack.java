@@ -77,12 +77,51 @@ public class MyStack extends LinkedStack {
     }
 
     public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        while (true) {
+            System.out.println(
+                    "0.Гараас оруулсан стекийг хэвлэж харна.\n1.Стекийн санамсаргүйгээр хольж буцаана.\n2Стекийн элементүүдийн давхардлыг арилгаж буцаана.");
+            System.out.println(
+                    "3.массивийн элементүүдийг стек рүү хийнэ.\nСтекийн элементүүдийг массив байдлаар буцаана.");
 
-        inputStack();
-        PrintStack(myStack);
-        splitStack();
-        PrintStack(splitStack);
-        PrintStack(myStack);
+            try {
+
+                int option;
+                option = scan.nextInt();
+
+                switch (option) {
+                case 0:
+                    inputStack();
+                    PrintStack(myStack);
+                    break;
+                case 1:
+
+                    break;
+                case 3:
+
+                    break;
+                case 4:
+
+                    break;
+                case 5:
+
+                    break;
+                default:
+                    System.out.println("invalid input, input options 1 to 5 !!!");
+                    break;
+                }
+            } catch (Exception exception) {
+                System.out.println("invalid input, input options 1 to 5 !!!");
+            }
+            System.out.print("do yo want to exit? yes or no:");
+            String exit = new String();
+            exit = scan.next();
+            if (exit.equals("yes"))
+                break;
+
+        }
+        scan.close();
+
         combineStack();
         PrintStack(myStack);
         // System.out.println(myStack.printStack());

@@ -1,6 +1,7 @@
 import dataStructures.LinkedStack;
 
 import java.util.Random;
+import java.util.Scanner;
 
 import dataStructures.ArrayLinearList;
 
@@ -33,18 +34,16 @@ public class MyStackDiff extends LinkedStack {
     static MyStackDiff myStack = new MyStackDiff();
 
     private static void inputStack() {
-        myStack.push("a");
-        myStack.push("b");
-        myStack.push("a");
-        myStack.push("d");
-        // Scanner scan = new Scanner(System.in);
-        // System.out.println("Та оруулах стекийн хэмжээг оруулна уу ?");
-        // int stackSize = scan.nextInt();
-        // for (int i = 0; i < stackSize; i++) {
-        // myStack.push(scan.next());
-        // }
 
-        // scan.close();
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Та оруулах стекийн хэмжээг оруулна уу ?");
+        int stackSize = scan.nextInt();
+        for (int i = 0; i < stackSize; i++) {
+            System.out.println("стекийн элемэнтээ оруулна уу");
+            myStack.push(scan.next());
+        }
+
+        scan.close();
     }
 
     public static MyStackDiff addRange(Object[] elements) {
@@ -56,7 +55,7 @@ public class MyStackDiff extends LinkedStack {
 
     static boolean checkIn(ArrayLinearList arr, Object object) {
         for (int i = 0; i < arr.size(); i++) {
-            if (object == arr.get(i))
+            if (object.equals(arr.get(i)))
                 return true;
         }
         return false;
@@ -114,7 +113,6 @@ public class MyStackDiff extends LinkedStack {
             Random ran = new Random();
             int rand = index == 0 ? 0 : ran.nextInt(index);
             // int rand = (int) (Math.random() * index);
-            System.out.println(rand);
             myStack.push(aList.get(rand));
             aList.remove(rand);
 
@@ -124,20 +122,78 @@ public class MyStackDiff extends LinkedStack {
     }
 
     public static void main(String[] args) {
-        inputStack();
-        // PrintStack(myStack);
-        // rand();
-        // PrintStack(myStack);
-        // unique();
-        // PrintStack(myStack);
-        // Object[] elemeObjects = { "a", "b" };
-        // addRange(elemeObjects);
-        // PrintStack(myStack);
-        // Object[] elements = toArray(myStack);
-        // for (int i = 0; i < elements.length; i++) {
-        // System.out.println(elements[i]);
-        // }
-        System.out.println(exists("a"));
+        Scanner scan = new Scanner(System.in);
+        int check = 1;
+        while (check > 0) {
+            System.out.println(
+                    "0.Гараас оруулсан стекийг хэвлэж харна.\n1.Стекийн санамсаргүйгээр хольж буцаана.\n2Стекийн элементүүдийн давхардлыг арилгаж буцаана.");
+            System.out.println(
+                    "3.массивийн элементүүдийг стек рүү хийнэ.\n4.Стекийн элементүүдийг массив байдлаар буцаана.");
+            System.out.print("5.Өгөгдсөн элементтэй ижил элемент стект байгаа эсэхийг буцаана.\ninput option:");
+
+            try {
+
+                int option;
+                option = scan.nextInt();
+
+                switch (option) {
+                case 0:
+                    inputStack();
+                    PrintStack(myStack);
+                    break;
+                case 1:
+
+                    inputStack();
+                    System.out.println("random хийхийн өмнөх утга");
+                    PrintStack(myStack);
+                    rand();
+                    System.out.println("random хийсний  дараах утга");
+                    PrintStack(myStack);
+                    break;
+                case 2:
+                    inputStack();
+
+                    System.out.println("unique хийхийн өмнөх утга");
+                    PrintStack(myStack);
+                    unique();
+                    System.out.println("unique хийсний  дараах утга");
+                    PrintStack(myStack);
+
+                    break;
+                case 3:
+                    inputStack();
+                    System.out.println("add range  хийхийн өмнөх утга");
+                    PrintStack(myStack);
+                    Object[] elemeObjects = { "a", "b" };
+                    System.out.println("add range хийсний  дараах утга");
+                    addRange(elemeObjects);
+                    PrintStack(myStack);
+                    break;
+                case 4:
+                    inputStack();
+                    PrintStack(myStack);
+                    Object[] elements = toArray(myStack);
+                    for (int i = 0; i < elements.length; i++) {
+                        System.out.println(elements[i]);
+                    }
+                    break;
+                default:
+                    System.out.println("invalid input, input options 0 to 4 !!!");
+                    break;
+                }
+            } catch (Exception exception) {
+                System.out.println("invalid input, input options 0 to 4 !!!");
+            }
+
+            System.out.println("\ndo yo want to exit? 1 or 0:");
+            break;
+            // String exit = scan.nextLine();
+            // if (exit.equals("yes"))
+            // break;
+
+        }
+        scan.close();
+
     }
 
 }
