@@ -123,17 +123,17 @@ public class MyStackDiff extends LinkedStack {
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        int check = 1;
-        while (check > 0) {
+        int end = 1;
+
+        while (true) {
             System.out.println(
                     "0.Гараас оруулсан стекийг хэвлэж харна.\n1.Стекийн санамсаргүйгээр хольж буцаана.\n2Стекийн элементүүдийн давхардлыг арилгаж буцаана.");
             System.out.println(
                     "3.массивийн элементүүдийг стек рүү хийнэ.\n4.Стекийн элементүүдийг массив байдлаар буцаана.");
-            System.out.print("5.Өгөгдсөн элементтэй ижил элемент стект байгаа эсэхийг буцаана.\ninput option:");
-
+            System.out.print("5.Гарахыг хүсвэл 5 сонгоно уу\ninput option:");
+            int option;
             try {
 
-                int option;
                 option = scan.nextInt();
 
                 switch (option) {
@@ -177,6 +177,8 @@ public class MyStackDiff extends LinkedStack {
                         System.out.println(elements[i]);
                     }
                     break;
+                case 5:
+                    System.exit(0);
                 default:
                     System.out.println("invalid input, input options 0 to 4 !!!");
                     break;
@@ -185,15 +187,18 @@ public class MyStackDiff extends LinkedStack {
                 System.out.println("invalid input, input options 0 to 4 !!!");
             }
 
-            System.out.println("\ndo yo want to exit? 1 or 0:");
-            break;
-            // String exit = scan.nextLine();
-            // if (exit.equals("yes"))
+            // System.out.print("\ndo yo want to exit? yes or no:");
+
+            // int exit = scan.nextInt();
+            // if (exit == 1) {
             // break;
+            // }
 
         }
-        scan.close();
 
+    }
+
+    private static void exit() {
     }
 
 }
